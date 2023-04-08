@@ -48,8 +48,10 @@ for (let i = 0; i < drumElements.length; i++) {
 }
 
 
-function handleClick(){
-    tom1.play();
+document.addEventListener("keydown", function(event) {
+    console.log(event);
+})
+
+function keyCheck() {
+    
 }
-
-
