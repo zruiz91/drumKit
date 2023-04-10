@@ -16,13 +16,19 @@ for (let i = 0; i < drumElements.length; i++) {
         let buttonInnerHTML = this.innerHTML;
 
         makeSound(buttonInnerHTML);
+
+        buttonAnimation(buttonInnerHTML);
     });
 }
 
 //Detect key press
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener("keydown", function (event) {
+
     makeSound(event.key);
+
+    buttonAnimation(event.key);
+
 })
 
 function makeSound(key) {
@@ -58,4 +64,14 @@ function makeSound(key) {
             break;
         default:
     }
+}
+
+function buttonAnimation(currentKey) {
+
+    let activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    }, 200);
 }
